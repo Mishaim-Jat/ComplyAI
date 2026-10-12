@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI COMPLY CALENDAR</title>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f3ecff;
+    margin: 20px;
+}
+h1 {
+    color: #4b2c82;
+    margin-bottom: 20px;
+}
+#calendar {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(75, 44, 130, 0.15);
+}
+.fc-event.under-review {
+    background-color: #caa7ff;
+    border: none;
+    color: #2c003e;
+}
+.fc-event.compliant {
+    background-color: #6dd5a7;
+    border: none;
+    color: #064b2d;
+}
+.fc-event.overdue {
+    background-color: #f28b82;
+    border: none;
+    color: #5a0b0b;
+}
+.tooltip {
+    position: absolute;
+    z-index: 10001;
+    background: white;
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    font-size: 14px;
+    max-width: 260px;
+    pointer-events: none;
+    border-left: 5px solid #9b6cff;
+}
+</style>
+</head>
+<body>
+<h1>📅 AI COMPLY CALENDAR</h1>
+<div id="calendar"></div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const calendarEl = document.getElementById('calendar');
+    let tooltip;
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        height: 'auto',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,listWeek'
+        },
+        events: '/api/calendar-events',
+        eventMouseEnter(info) {
+            tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.innerHTML = `
+                <strong>${info.event.title}</strong><br>
+                <div class="status">Status: ${info.event.extendedProps.status}</div>
+                <div>Owner: ${info.event.extendedProps.owner}</div>
+                <div>Notes: ${info.event.extendedProps.notes}</div>
+                <div>Date: ${info.event.start.toDateString()}</div>
+            `;
+            document.body.appendChild(tooltip);
+            const rect = info.el.getBoundingClientRect();
+            tooltip.style.left = rect.left + window.scrollX + 'px';
+            tooltip.style.top = rect.top + window.scrollY - tooltip.offsetHeight - 8 + 'px';
+        },
+        eventMouseLeave() {
+            if (tooltip) {
+                tooltip.remove();
+                tooltip = null;
+            }
+        }
+    });
+    calendar.render();
+});
+</script>
+</body>
+</html>

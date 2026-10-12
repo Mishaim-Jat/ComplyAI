@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Policy - Comply AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #3B0086 0%, #6200B3 40%, #9D8DF1 100%);
+            color: #1f1230;
+        }
+        
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .welcome-text h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffffff;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .header-actions a {
+            color: #E4DEFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .content-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            text-align: center;
+        }
+        
+        h2 {
+            color: #3B0086;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        input[type="file"] {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px dashed #9D8DF1;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            cursor: pointer;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #6200B3, #3B0086);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .actions {
+            margin-top: 20px;
+        }
+        
+        .primary-button {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #6200B3, #3B0086);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="/static/images/logo.png" alt="Comply AI">
+                </div>
+                <div class="welcome-text">
+                    <h1>Upload Policy Document</h1>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="/dashboard">Dashboard</a>
+                <a href="/calendar">Calendar</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </header>
+        
+        <div class="content-card">
+            <h2>Upload New Policy</h2>
+            <p>Hi, {{ user.first_name }} - Upload a PDF policy for compliance analysis</p>
+
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" id="policy_file" name="policy_file" accept=".pdf" required><br><br>
+                <button type="submit">Analyze Compliance</button>
+            </form>
+
+            <div class="actions">
+                <a href="/dashboard" class="primary-button">← Back to Dashboard</a>
+                <a href="/calendar" class="primary-button" style="background: linear-gradient(135deg, #9D8DF1, #7238BE);">📅 Calendar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

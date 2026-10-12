@@ -1,0 +1,131 @@
+<!-- #templates/login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Comply AI</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0;
+            background: linear-gradient(135deg, #7238be 0%, #6200B3 40%, #9D8DF1 100%);
+        }
+
+        .form-card { 
+            background: #ffffff;
+            padding: 40px; 
+            border-radius: 16px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2); 
+            width: 500px;
+            box-sizing: border-box;
+            border: 1px solid rgba(157,141,241,0.5);
+        }
+
+        h2 {
+            color: #7238be;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            border: 1px solid #9D8DF1; 
+            border-radius: 8px; 
+            box-sizing: border-box;
+            background: #f9f8ff;
+            transition: all 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #59C3C3;
+            box-shadow: 0 0 0 3px rgba(89,195,195,0.35);
+            background: #ffffff;
+        }
+
+        button { 
+            width: 100%; 
+            padding: 12px; 
+            background: linear-gradient(135deg, #6200B3, #7238be);
+            color: #ffffff; 
+            border: none; 
+            border-radius: 999px; 
+            cursor: pointer; 
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        p {
+            text-align: center;
+            color: #333333;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #59C3C3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .error-text {
+            color: #ff4b5c;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .forgot-wrapper {
+            text-align: right;
+            margin-top: -5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-card">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="/static/images/logo.png" alt="Comply AI" style="width: 120px; height: auto; display: block; margin: 0 auto;">
+        </div>
+        <h2>Login</h2>
+
+        {% if error %}
+            <p class="error-text">{{ error }}</p>
+        {% endif %}
+
+        <!-- Single login form -->
+        <form action="/login" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <!-- Forgot password link -->
+            <div class="forgot-wrapper">
+                <a href="/forgot-password" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>New here? <a href="/signup">Sign up</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!--#templates/index.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPLY AI - Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #7238BE 0%, #796986 40%, #9D8DF1 100%);
+            color: #1f1230;
+        }
+        nav {
+            background: rgba(10, 6, 30, 0.7);
+            color: white;
+            padding: 12px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(157,141,241,0.5);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+        }
+
+        .nav-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .nav-brand {
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #E4DEFF;
+        }
+
+        nav a {
+            color: #E4DEFF;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        nav span {
+            color: #E4DEFF;
+            font-size: 0.95rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 110px 20px 80px;
+        }
+
+        .hero-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            background: rgba(10, 6, 30, 0.65);
+            border-radius: 24px;
+            padding: 40px 28px 46px;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+            border: 1px solid rgba(157,141,241,0.6);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #D6D0FF;
+            margin-bottom: 30px;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background: linear-gradient(135deg, #7f6494, #7238BE);
+            color: white;
+            padding: 14px 38px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.5);
+        }
+
+        .btn-main:active {
+            transform: translateY(0);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 18px;
+            }
+            .hero {
+                padding: 80px 16px 60px;
+            }
+            .hero-inner {
+                padding: 30px 20px 34px;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <div class="nav-logo">
+                <img src="/static/images/logo.png" alt="Comply AI">
+            </div>
+            <div class="nav-brand">COMPLY AI</div>
+        </div>
+        <div>
+            {% if user %}
+                <span>Hi, {{ user.first_name }}</span>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/calendar">Calendar</a>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/signup">Sign up</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-inner">
+            <h1>Welcome to COMPLY AI</h1>
+            <p>Automated policy analysis and compliance tracking made simple.</p>
+
+            {% if not user %}
+                <a href="/signup" class="btn-main">Get started for free</a>
+            {% else %}
+                <a href="/dashboard" class="btn-main">View your reports</a>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
