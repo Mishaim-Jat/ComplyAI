@@ -74,13 +74,91 @@ This work strengthened my practical experience in **Retrieval-Augmented Generati
 
 ## Application and Screenshots
 
-![Dashboard](screenshots/dashboard.png)
 
-![Document Upload](screenshots/document-upload.png)
+## Screenshots
 
-![Compliance Findings](screenshots/compliance-findings.png)
+### 1. Dashboard & Navigation
 
-![Risk Heatmap](screenshots/risk-heatmap.png)
+![Main Dashboard](screenshots/Main_Dashboard_page.png)
+
+![Documents Page](screenshots/Documents_Page.png)
+
+![Calendar Page](screenshots/Calendar_Page.png)
+
+### 2. Document Management
+
+![Upload Documents](screenshots/Upload_Documents_page.png)
+
+![Upload and Analysis](screenshots/Upload_and_Analysis_Page.png)
+
+![Download Report](screenshots/download_report.png)
+
+### 3. AI-Powered Compliance Analysis
+
+![Compliance Gap Analysis](screenshots/Compliance_Gap_Analysis_Page.png)
+
+![Compliance Gap Analysis Details](screenshots/Compliance_gap_analysis.png)
+
+![High Priority Gap](screenshots/high_priority_gap.png)
+
+![NIST Compliance Questionnaire](screenshots/NIST_compliance_questionaire.png)
+
+### 4. Risk Assessment & Management
+
+![Risk Overview](screenshots/Risk_overview_page.png)
+
+![Risk Heatmap](screenshots/Risj_Heatmap_page.png)
+
+![Risk Heatmap Items](screenshots/Risk_Heatmap_items.png)
+
+![Risk Assessment](screenshots/risk_assessment.png)
+
+![Risk Appetite Assessment](screenshots/Risk_Appetite_assesment.png)
+
+![Risk Recommendations](screenshots/Risk_Reccomendations.png)
+
+### 5. Framework Management
+
+![Framework Management](screenshots/Framework_management.png)
+
+![Framework Management Page](screenshots/Framework_managememt_page.png)
+
+### 6. AI Chatbot & Collaboration
+
+![AI Chatbot](screenshots/Chat_Bot.png)
+
+![Calendar Notes](screenshots/Notes_on_Calendar.png)
+
+![Share Link](screenshots/Add_Viewer_and_share_link.png)
+
+![Share Link Expiry](screenshots/share_link_expiry.png)
+
+### 7. Administration & User Management
+
+![User Management](screenshots/Admin_user_management.png)
+
+![Admin Status Change](screenshots/Admin_Status_change.png)
+
+![Account Settings](screenshots/Account_settings_Page.png)
+
+![Organisation Information](screenshots/Add_organisation_information.png)
+
+### 8. Authentication
+
+![Sign In](screenshots/Signin_Page.png)
+
+![Sign Up](screenshots/signup_Page.png)
+
+### 9. Additional Screenshots
+
+![Compliance Assessment](screenshots/Compliance_assesment.png)
+
+![Edited Compliance Report](screenshots/edit_complaince_report_gap_analysis.png)
+
+![Report](screenshots/Report.png)
+
+![Picture 1](screenshots/Picture1.png)
+
 
 The application includes a compliance dashboard, document analysis workflow, risk assessment visualisations, questionnaire interface, collaboration features and report-generation functionality.
 
